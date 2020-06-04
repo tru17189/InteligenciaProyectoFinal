@@ -8,7 +8,7 @@ sio = socketio.Client()
 def connect():
     sio.emit('signin', {
     'user_name': 'Major Tom (Alexander Trujillo)',
-    'tournament_id': 2,
+    'tournament_id': 142857,
     'user_role': 'player'})
     print('connection established')
 
@@ -47,22 +47,18 @@ def ready(server):
                         typeMAX2 = 0
                         resultMAX2 = i + 1
                         alpha = 1
-                        print('Estoy dibujando 1')
                     elif server['board'][0][i] == EMPTY and server['board'][0][i + 1] == EMPTY and server['board'][1][contador + acumulador] == EMPTY and server['board'][1][contador + acumulador + 1] != EMPTY:
                         typeMAX2 = 1
                         resultMAX2 = contador + acumulador
                         alpha = 1
-                        print('Estoy dibujando 2')
                     elif server['board'][0][i] == EMPTY and server['board'][0][i + 1] != EMPTY and server['board'][1][contador + acumulador] == EMPTY and server['board'][1][contador + acumulador + 1] == EMPTY:
                         typeMAX2 = 0
                         resultMAX2 = i
                         alpha = 1
-                        print('Estoy dibujando 3')
                     elif server['board'][0][i] == EMPTY and server['board'][0][i + 1] == EMPTY and server['board'][1][contador + acumulador] != EMPTY and server['board'][1][contador + acumulador + 1] == EMPTY:
                         typeMAX2 = 1
                         resultMAX2 = contador + acumulador + 1
                         alpha = 1
-                        print('Estoy dibujando 4')
                     acumulador = acumulador + N
                 else:
                     contador = contador + 1
@@ -85,7 +81,6 @@ def ready(server):
                             typeMAX = 0
                             resultMAX = i + 6
                             alpha = 2
-                        print('estoy estorbando 1')
                     elif server['board'][0][i] != 99 and server['board'][1][contador + acumulador + 1] != 99 and (server['board'][0][i + 1] == 99 and server['board'][1][contador + acumulador] == 99):
                         if i > 23:
                             typeMAX = 0
@@ -94,7 +89,6 @@ def ready(server):
                             typeMAX = 0
                             resultMAX = i + 6
                             alpha = 2
-                        print('estoy estorbando 2')
                     elif server['board'][1][contador + acumulador + 1] != 99 and server['board'][0][i + 1] != 99 and (server['board'][0][i] == 99 and server['board'][1][contador + acumulador] == 99):
                         if i < 6:
                             typeMAX = 0
@@ -103,7 +97,6 @@ def ready(server):
                             typeMAX = 0
                             resultMAX = i - 6
                             alpha = 2
-                        print('estoy estorbando 3')
                     elif server['board'][0][i + 1] != 99 and server['board'][1][contador + acumulador] != 99 and (server['board'][0][i] == 99 and server['board'][1][contador + acumulador + 1] == 99):
                         if i < 6:
                             typeMAX = 0
@@ -112,7 +105,6 @@ def ready(server):
                             typeMAX = 0
                             resultMAX = i - 6
                             alpha = 2
-                        print('estoy estorbando 4')
                     elif server['board'][0][i] != 99 and server['board'][0][i+1] != 99 and (server['board'][1][contador + acumulador] == 99 and server['board'][1][contador + acumulador + 1] == 99):
                         if i > 23:
                             typeMAX = 0
@@ -121,7 +113,6 @@ def ready(server):
                             typeMAX = 0
                             resultMAX = i + 6
                             alpha = 2
-                        print('estoy estorbando 5')
                     elif server['board'][1][contador + acumulador] != 99 and server['board'][1][contador + acumulador+1] != 99 and (server['board'][0][i] == 99 and server['board'][0][i + 1] == 99):
                         if i > 23:
                             typeMIN = 0
@@ -130,7 +121,6 @@ def ready(server):
                             typeMIN = 0
                             resultMIN = i + 6
                             beta = 2
-                        print('estoy estorbando 6')
                     acumulador = acumulador + N
                 else:
                     contador = contador + 1
@@ -150,23 +140,18 @@ def ready(server):
                         typeMAX3 = 1
                         resultMAX3 = contador + acumulador + 1
                         alpha= 3
-                        print(contador + acumulador)
-                        print('Me estoy beneficiando 1')
                     elif server['board'][0][i] != EMPTY and server['board'][1][contador + acumulador] != EMPTY and server['board'][1][contador + acumulador + 1] != EMPTY and server['board'][0][i+1] == EMPTY:
                         typeMAX3 = 0
                         resultMAX3 = i + 1
                         alpha= 3
-                        print('Me estoy beneficiando 2')
                     elif server['board'][0][i] != EMPTY and server['board'][0][i + 1] != EMPTY and server['board'][1][contador + acumulador + 1] != EMPTY and server['board'][1][contador + acumulador] == EMPTY:
                         typeMAX3 = 1
                         resultMAXC3 = contador + acumulador
                         alpha= 3
-                        print('Me estoy beneficiando 3')
                     elif server['board'][1][contador + acumulador] != EMPTY and server['board'][0][i + 1] != EMPTY and server['board'][1][contador + acumulador + 1] != EMPTY and server['board'][0][i] == EMPTY:
                         typeMAX3 = 0
                         resultMAX3 = i
                         alpha= 3
-                        print('Me estoy beneficiando 4')
                     acumulador = acumulador + N
                 else:
                     contador = contador + 1
@@ -213,22 +198,18 @@ def ready(server):
                         typeMIN2 = 0
                         resultMIN2 = i + 1
                         beta = 1
-                        print('Estoy dibujando 1')
                     elif server['board'][0][i] == EMPTY and server['board'][0][i + 1] == EMPTY and server['board'][1][contador + acumulador] == EMPTY and server['board'][1][contador + acumulador + 1] != EMPTY:
                         typeMIN2 = 1
                         resultMIN2 = contador + acumulador
                         beta = 1
-                        print('Estoy dibujando 2')
                     elif server['board'][0][i] == EMPTY and server['board'][0][i + 1] != EMPTY and server['board'][1][contador + acumulador] == EMPTY and server['board'][1][contador + acumulador + 1] == EMPTY:
                         typeMIN2 = 0
                         resultMIN2 = i
                         beta = 1
-                        print('Estoy dibujando 3')
                     elif server['board'][0][i] == EMPTY and server['board'][0][i + 1] == EMPTY and server['board'][1][contador + acumulador] != EMPTY and server['board'][1][contador + acumulador + 1] == EMPTY:
                         typeMIN2 = 1
                         resultMIN2 = contador + acumulador + 1
                         beta = 1
-                        print('Estoy dibujando 4')
                     acumulador = acumulador + N
                 else:
                     contador = contador + 1
@@ -251,7 +232,6 @@ def ready(server):
                             typeMIN = 0
                             resultMIN = i + 6
                             beta = 2
-                        print('estoy estorbando 1')
                     elif server['board'][0][i] != 99 and server['board'][1][contador + acumulador + 1] != 99 and (server['board'][0][i + 1] == 99 and server['board'][1][contador + acumulador] == 99):
                         if i > 23:
                             typeMIN = 0
@@ -260,7 +240,6 @@ def ready(server):
                             typeMIN = 0
                             resultMIN = i + 6
                             beta = 2
-                        print('estoy estorbando 2')
                     elif server['board'][1][contador + acumulador + 1] != 99 and server['board'][0][i + 1] != 99 and (server['board'][0][i] == 99 and server['board'][1][contador + acumulador] == 99):
                         if i < 6:
                             typeMIN = 0
@@ -269,7 +248,6 @@ def ready(server):
                             typeMIN = 0
                             resultMIN = i - 6
                             beta = 2
-                        print('estoy estorbando 3')
                     elif server['board'][0][i + 1] != 99 and server['board'][1][contador + acumulador] != 99 and (server['board'][0][i] == 99 and server['board'][1][contador + acumulador + 1] == 99):
                         if i < 6:
                             typeMIN = 0
@@ -278,7 +256,6 @@ def ready(server):
                             typeMIN = 0
                             resultMIN = i - 6
                             beta = 2
-                        print('estoy estorbando 4')
                     elif server['board'][0][i] != 99 and server['board'][0][i+1] != 99 and (server['board'][1][contador + acumulador] == 99 and server['board'][1][contador + acumulador + 1] == 99):
                         if i > 23:
                             typeMIN = 0
@@ -287,7 +264,6 @@ def ready(server):
                             typeMIN = 0
                             resultMIN = i + 6
                             beta = 2
-                        print('estoy estorbando 5')
                     elif server['board'][1][contador + acumulador] != 99 and server['board'][1][contador + acumulador+1] != 99 and (server['board'][0][i] == 99 and server['board'][0][i + 1] == 99):
                         if i > 23:
                             typeMIN = 0
@@ -296,7 +272,6 @@ def ready(server):
                             typeMIN = 0
                             resultMIN = i + 6
                             beta = 2
-                        print('estoy estorbando 6')
                     acumulador = acumulador + N
                 else:
                     contador = contador + 1
@@ -316,22 +291,18 @@ def ready(server):
                         typeMIN3 = 1
                         resultMIN3 = contador + acumulador + 1
                         beta= 3
-                        print('Me estoy beneficiando 1')
                     elif server['board'][0][i] != EMPTY and server['board'][1][contador + acumulador] != EMPTY and server['board'][1][contador + acumulador + 1] != EMPTY and server['board'][0][i + 1] == EMPTY:
                         typeMIN3 = 0
                         resultMIN3 = i + 1
                         beta= 3
-                        print('Me estoy beneficiando 2')
                     elif server['board'][0][i] != EMPTY and server['board'][0][i + 1] != EMPTY and server['board'][1][contador + acumulador + 1] != EMPTY and server['board'][1][contador + acumulador] == EMPTY:
                         typeMIN3 = 1
                         resultMINC3 = contador + acumulador
                         beta= 3
-                        print('Me estoy beneficiando 3')
                     elif server['board'][1][contador + acumulador] != EMPTY and server['board'][0][i + 1] != EMPTY and server['board'][1][contador + acumulador + 1] != EMPTY and server['board'][0][i] == EMPTY:
                         typeMIN3 = 0
                         resultMIN3 = i
                         beta= 3
-                        print('Me estoy beneficiando 4')
                     acumulador = acumulador + N
                 else:
                     contador = contador + 1
@@ -367,7 +338,6 @@ def ready(server):
                 typeLineMIN, positionMIN, alpha, depth, player = min_(typeLine, position, alpha, depth, player)
                 print('break alpha')
 
-
         #Esto solo se pone en el caso que algo salga mal 
         while server['board'][typeLine][position] != 99:
             typeLine = random.randint(0,1)
@@ -379,10 +349,9 @@ def ready(server):
     movement = [typeLine, position]
     print(movement)
 
-    
     sio.emit('play',{
         'player_turn_id':server['player_turn_id'],
-        'tournament_id': 2,
+        'tournament_id': 142857,
         'game_id': server['game_id'],
         'movement': movement
     })
@@ -399,10 +368,10 @@ def on_finish(server):
         print("Perdiste :(")
 
     sio.emit('player_ready', {
-        'tournament_id': 2,
+        'tournament_id': 142857,
         'game_id': server['game_id'],
         'player_turn_id': server['player_turn_id']
     })
 
-sio.connect('http://3.12.129.126:5000')
+sio.connect('http://3.12.129.126:4000')
 sio.wait()
